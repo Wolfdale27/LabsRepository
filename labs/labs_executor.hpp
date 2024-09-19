@@ -115,7 +115,7 @@ int Execute() {
         break;
     
     default:
-    std::cout << "This lab not exists yet" << std::endl;
+    std::cout << "Такой лабы пока нету" << std::endl;
     return EXIT_SUCCESS;
     }
     return EXIT_FAILURE;
