@@ -68,12 +68,12 @@ void executeLab17() {
     plt::named_plot("[A]", times, concentrations_A, "r-");
     plt::named_plot("[B]", times, concentrations_B, "g-");
     plt::named_plot("[C]", times, concentrations_C, "b-");
-    plt::named_plot("Optical Density", times, optical_densities, "k--");
+    plt::named_plot("Оптическая плотность", times, optical_densities, "k--");
 
     // Добавление меток и заголовков
-    plt::xlabel("Time");
-    plt::ylabel("Concentration / Optical Density");
-    plt::title("Concentration and Optical Density over Time");
+    plt::xlabel("Время");
+    plt::ylabel("Концентрация / Оптическая плотность");
+    plt::title("Концентрация и Оптическая плотность по времени");
 
     // Отображение легенды
     plt::legend();
@@ -91,7 +91,7 @@ void executeLab17() {
 
 public:
 int Execute() {
-    std::cout << "Choose lab: ";
+    std::cout << "Выбрать задачу для подсчета: ";
     int choice = 0;
     std::cin >> choice;
     std::cout << std::endl;
