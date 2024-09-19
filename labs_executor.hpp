@@ -84,8 +84,8 @@ void executeLab17() {
     // Сохранение графика
     std::string lab17img = "лаба17_картинка.png";
     plt::save(lab17img);
-
-    std::cout << "График сохранен как ." << lab17img << std::endl;
+    plt::show();
+    std::cout << "График сохранен как " << lab17img << std::endl;
 }
 
 
@@ -99,15 +99,19 @@ int Execute() {
     {
     case 2:
         executeLab2();
+        return EXIT_SUCCESS;
         break;
     case 7:
         executeLab7();
+        return EXIT_SUCCESS;
         break;
     case 12:
         executeLab12();
+        return EXIT_SUCCESS;
         break;
     case 17:
         executeLab17();
+        return EXIT_SUCCESS;
         break;
     
     default:
