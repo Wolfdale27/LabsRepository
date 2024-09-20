@@ -4,6 +4,8 @@
 #include "lab7.h"
 #include "lab12.h"
 #include "lab17.h"
+#include "lab22.h"
+#include "lab27.h"
 
 //Шаг 2: выше этого комментария добавить ваш .h в формате
 //#include "ваша_лаба.h"
@@ -91,6 +93,40 @@ void executeLab17() {
     std::cout << "График сохранен как " << lab17img << std::endl;
 }
 
+void executeLab22() {
+    Lab22 queue_sim(5.0, 2.0, 0.01); // 5 чел/мин, кассирша обрабатывает 2 чел/мин, 1% вероятность встретить знакомого
+
+    std::vector<double> times, queue_lengths;
+    std::string conclusion;
+
+    queue_sim.simulate_queue(60.0, 0.1, times, queue_lengths, conclusion);
+
+    // Построение графика
+    plt::figure_size(1200, 780);
+    plt::plot(times, queue_lengths, "b-");
+    plt::xlabel("Time (minutes)");
+    plt::ylabel("Queue Length");
+    plt::title("Queue Length Over Time");
+
+    // Сохранение графика
+    plt::show();
+    plt::save("queue_simulation.png");
+
+    std::cout << "График сохранен как 'queue_simulation.png'.\n";
+    std::cout << "Результаты: " << conclusion << "\n";
+}
+
+void executeLab27(){
+    Lab27 conversion(1.0, 0.5, 0.1); // Пример значений констант скорости
+
+    double H2_concentration = 1.0; // Начальная концентрация пара-водорода
+    double M_concentration = 1.0;  // Концентрация инертных частиц
+
+    double rate = conversion.reaction_rate(H2_concentration, M_concentration);
+
+    std::cout << "Скорость конверсии пара-водорода: " << rate << "\n";
+}
+
 //Шаг 1: создать .cpp и .h файлы в папке labs, в них ваша логика
 //Шаг 3: Выше этого комментария включить Вашу функцию, например:
 /*
@@ -122,6 +158,14 @@ int Execute() {
         break;
     case 17:
         executeLab17();
+        return EXIT_SUCCESS;
+        break;
+    case 22:
+        executeLab22();
+        return EXIT_SUCCESS;
+        break;
+    case 27:
+        executeLab27();
         return EXIT_SUCCESS;
         break;
     //Шаг 4: добавить вашу функцию в формате:
