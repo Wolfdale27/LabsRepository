@@ -5,6 +5,9 @@
 #include "lab12.h"
 #include "lab17.h"
 
+//Шаг 2: выше этого комментария добавить ваш .h в формате
+//#include "ваша_лаба.h"
+
 namespace plt = matplotlibcpp;
 
 class LabsExecutor {
@@ -88,6 +91,14 @@ void executeLab17() {
     std::cout << "График сохранен как " << lab17img << std::endl;
 }
 
+//Шаг 1: создать .cpp и .h файлы в папке labs, в них ваша логика
+//Шаг 3: Выше этого комментария включить Вашу функцию, например:
+/*
+void executeLabномер_вашей_лабы() {
+ваш код выполнения из .cpp и .h
+}
+*/
+
 
 public:
 int Execute() {
@@ -113,6 +124,15 @@ int Execute() {
         executeLab17();
         return EXIT_SUCCESS;
         break;
+    //Шаг 4: добавить вашу функцию в формате:
+    /*
+    
+    case номер_вашей_лабы:
+        executeLabномер_вашей_лабы();
+        return EXIT_SUCCESS;
+        break;
+
+    */
     
     default:
     std::cout << "Такой лабы пока нету" << std::endl;

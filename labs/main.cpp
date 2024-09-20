@@ -8,7 +8,7 @@ int main() {
     std::string res = "";
     std::cout << "Что-нибудь еще посчитать?(Y/N): ";
     std::cin >> res;
-    if(res=="Y") goto repeat;
+    if(res=="Y" || res=="yes" || res=="y") goto repeat;
 
     return 0;
 }
