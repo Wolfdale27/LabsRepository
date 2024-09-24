@@ -29,6 +29,8 @@ add_executable(LabsRepository
     labs/lab17.cpp
     labs/lab22.cpp
     labs/lab27.cpp
+    labs/lab32.cpp
+    labs/lab37.cpp
 )
 
 target_link_libraries(LabsRepository ${Python3_LIBRARIES})

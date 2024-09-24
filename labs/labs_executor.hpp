@@ -6,6 +6,8 @@
 #include "lab17.h"
 #include "lab22.h"
 #include "lab27.h"
+#include "lab32.h"
+#include "lab37.h"
 
 //Шаг 2: выше этого комментария добавить ваш .h в формате
 //#include "ваша_лаба.h"
@@ -127,6 +129,52 @@ void executeLab27(){
     std::cout << "Скорость конверсии пара-водорода: " << rate << "\n";
 }
 
+void executeLab32() {
+    Lab32 reaction_sim(1.0, 0.5, 0.8, 0.4, 1.2, 0.6, 1.5, 0.3, 1.1, 0.7);
+
+    std::vector<double> times, SiH2Cl2_conc, SiHCl_conc, HCl_conc, SiCl2_conc;
+    
+    // Симуляция на 1000 секунд с шагом 1 секунда
+    reaction_sim.simulate_reaction(1000.0, 1.0, times, SiH2Cl2_conc, SiHCl_conc, HCl_conc, SiCl2_conc);
+
+    // Построение графиков концентраций веществ
+    plt::figure_size(1200, 780);
+    plt::plot(times, SiH2Cl2_conc, "r-", {{"label", "SiH2Cl2"}});
+    plt::plot(times, SiHCl_conc, "g-", {{"label", "SiHCl"}});
+    plt::plot(times, HCl_conc, "b-", {{"label", "HCl"}});
+    plt::plot(times, SiCl2_conc, "k-", {{"label", "SiCl2"}});
+
+    plt::xlabel("Time (seconds)");
+    plt::ylabel("Concentration");
+    plt::title("Concentration of Substances Over Time in SiH2Cl2 Decomposition");
+    plt::legend();
+
+    // Сохранение графика
+    plt::save("reaction_simulation_lab32.png");
+
+    std::cout << "График сохранен как 'reaction_simulation_lab32.png'.\n";
+}
+
+void executeLab37() {
+    Lab37 ionization_sim(2000, 1e-8, 0); // q = 2000, alpha = 1e-8, n0 = 0
+
+    std::vector<double> times, ion_counts;
+    ionization_sim.simulate_ionization(1000.0, 1.0, times, ion_counts); // симуляция на 1000 секунд с шагом 1 сек
+
+    // Построение графика
+    plt::figure_size(1200, 780);
+    plt::plot(times, ion_counts, "r-");
+    plt::xlabel("Время (сек)");
+    plt::ylabel("Количество ионов");
+    plt::title("Количество ионов с течением времени");
+
+    // Сохранение графика
+    plt::show();
+    plt::save("ionization_simulation.png");
+
+    std::cout << "График сохранен как 'ionization_simulation.png'.\n";
+}
+
 //Шаг 1: создать .cpp и .h файлы в папке labs, в них ваша логика
 //Шаг 3: Выше этого комментария включить Вашу функцию, например:
 /*
@@ -166,6 +214,14 @@ int Execute() {
         break;
     case 27:
         executeLab27();
+        return EXIT_SUCCESS;
+        break;
+    case 32:
+        executeLab32();
+        return EXIT_SUCCESS;
+        break;
+    case 37:
+        executeLab37();
         return EXIT_SUCCESS;
         break;
     //Шаг 4: добавить вашу функцию в формате:
