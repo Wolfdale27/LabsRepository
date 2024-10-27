@@ -3,6 +3,7 @@ build
 
 # Prerequisites
 *.d
+.venv
 
 # Compiled Object files
 *.slo

@@ -1,5 +1,6 @@
 #include "lab17.h"
 #include <cmath>
+#include <iostream>
 
 void Lab17::compute_concentrations(double t_max, double dt,
                                    std::vector<double>& times,
@@ -7,6 +8,7 @@ void Lab17::compute_concentrations(double t_max, double dt,
                                    std::vector<double>& concentrations_B,
                                    std::vector<double>& concentrations_C,
                                    std::vector<double>& optical_densities) {
+    std::cout << "Lab17::compute_concentrations(...) entered" << std::endl;
     double A = 1.0; // Начальная концентрация A
     double B = 0.0; // Начальная концентрация B
     double C = 0.0; // Начальная концентрация C

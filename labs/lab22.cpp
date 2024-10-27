@@ -2,8 +2,14 @@
 #include <algorithm>
 #include <random>
 #include <sstream>
+#include <iostream>
 
-void Lab22::simulate_queue(double time, double dt, std::vector<double>& times, std::vector<double>& queue_lengths, std::string& conclusion) {
+void Lab22::simulate_queue( double time, 
+                            double dt, 
+                            std::vector<double>& times, 
+                            std::vector<double>& queue_lengths, 
+                            std::string& conclusion) {
+    std::cout << "Lab22::simulate_queue(...) entered" << std::endl;
     double queue_length = 0.0;
     std::mt19937 gen(std::random_device{}());
     std::uniform_real_distribution<> dist(0.0, 1.0);

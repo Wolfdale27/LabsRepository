@@ -138,6 +138,7 @@ void executeLabномер_вашей_лабы() {
 
 public:
 int Execute() {
+    std::cout << "LabsExecutor::Execute() entered" << std:: endl;
     std::cout << "Выбрать задачу для подсчета: ";
     int choice = 0;
     std::cin >> choice;
@@ -184,6 +185,8 @@ int Execute() {
     }
     return EXIT_FAILURE;
 };
- LabsExecutor() =default;
+ LabsExecutor() {
+    std::cout << "LabsExecutor::LabsExecutor() entered" << std:: endl;
+ };
 ~LabsExecutor() = default;
 };
